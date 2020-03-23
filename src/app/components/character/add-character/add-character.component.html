@@ -1,0 +1,95 @@
+<h1>Ajouter un Nouveau Membre</h1>
+<div class="container">
+
+  <form #validationForm="ngForm" (ngSubmit)="addCharacter()">
+
+    <div class="form-group">
+      <label>Character's firstName :</label>
+      <input  #characterFirstName="ngModel" required type="text"
+              class="form-control" [(ngModel)]="characterForm.firstName" id="firstName" name="firstName">
+      <div [hidden]="characterFirstName.valid" class="alert alert-danger">#ERROR : name_is_not_valid</div>
+    </div>
+    <div class="form-group">
+      <label>Character's lastName :</label>
+      <input  #characterLastName="ngModel" required type="text"
+              class="form-control" [(ngModel)]="characterForm.lastName" id="lastName" name="lastName">
+      <div [hidden]="characterLastName.valid" class="alert alert-danger">#ERROR : name_is_not_valid</div>
+    </div>
+    <div class="form-group">
+      <label>Character's alias :</label>
+      <input  #characterAlias="ngModel" required type="text"
+              class="form-control" [(ngModel)]="characterForm.alias" id="alias" name="alias">
+      <div [hidden]="characterAlias.valid" class="alert alert-danger">#ERROR : name_is_not_valid</div>
+    </div>
+
+    <div class="form-group">
+      <label>Character's history :</label>
+      <textarea  #characterBackground="ngModel" required type="textarea"
+              class="form-control" [(ngModel)]="characterForm.background" id="background" name="background"></textarea>
+      <div [hidden]="characterBackground.valid" class="alert alert-danger">#ERROR : background_is_not_valid</div>
+    </div>
+
+    <!-- <div class="form-group">
+      <label>Character's history :</label>
+      <input  #characterBackground="ngModel" required type="textarea"
+              class="form-control" [(ngModel)]="characterForm.background" id="background" name="background">
+      <div [hidden]="characterBackground.valid" class="alert alert-danger">#ERROR : background_is_not_valid</div>
+    </div> -->
+
+    <div class="form-group">
+      <label>Character's grade :</label><br>
+      <ng-container *ngFor="let grade of availableGrades">
+        <div class="form-check form-check-inline">
+          <input  class="form-check-input" type="radio" name="brand"
+                  id="inputRadio-{{grade}}" [value]="grade"
+                  [(ngModel)]="characterForm.grade" required>
+          <label class="form-check-label" for="customRadio">{{grade}}</label>
+        </div>
+      </ng-container>
+      <div [hidden]="validationForm.controls.grade?.valid" class="alert alert-danger">#ERROR : grade</div>
+    </div>
+
+    <!-- <div class="form-group">
+      <label>Character's Usage : </label>
+      <select #type="ngModel" name="category"
+              [(ngModel)]="characterForm.category"
+              required class="form-control">
+        <option></option>
+        <option *ngFor="let category of availableCategory">
+          {{category}}
+        </option>
+      </select>
+      <div [hidden]="type.valid" class="alert alert-danger">#ERROR : category_is_not_valid</div>
+    </div> -->
+
+    <div class="form-group">
+      <label>Character's Age : </label><br>
+      <input  [(ngModel)]="characterForm.age" #age="ngModel" name="age"
+              type="number" step="0.5" min="39" max="48" required >
+      <div [hidden]="age.valid" class="alert alert-danger">#ERROR : age_is_not_valid</div>
+    </div>
+
+    <input type="submit" class="btn btn-success" value="submit" [disabled]="!validationForm.valid">
+  </form>
+</div>
+
+
+
+
+
+<!--
+
+**id:number;
+**firstName:string;
+**lastName:string;
+**alias: string;
+**grade:string;
+**age: number;
+**background: string;
+
+motivation: string;
+activities: string;
+titles: string;
+estate: string;
+creationDate : Date; -->
+

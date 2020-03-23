@@ -1,0 +1,28 @@
+{
+  "members": [
+    {
+      "id": 0,
+      "firstName": "Ememnoth",
+      "lastName": "SKEGGI",
+      "alias": "Maester",
+      "grade": "Maestre Regius Procurator",
+      "age": 0,
+      "background": "Vient de l'isle de Raegyar",
+      "motivation": "Relever l'empire à l'aide du Concilium Regius",
+      "activities": "Secrètes",
+      "titles": "Secrets",
+      "estate": "Secrets",
+      "creationDate": "2020-03-23T07:10:08.863Z"
+    },
+    {
+      "firstName": "test",
+      "age": 39,
+      "grade": "Proximus Corona",
+      "lastName": "test",
+      "alias": "test",
+      "background": "test",
+      "creationDate": "2020-03-23T08:36:40.413Z",
+      "id": 1
+    }
+  ]
+}

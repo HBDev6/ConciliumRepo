@@ -1,0 +1,57 @@
+<h1>Les Membres du Concilium</h1>
+
+<ng-container *ngIf="isLoading">
+  Réception des données..
+  <!-- <img src="/assets/pics/gifs/loading.gif"> -->
+</ng-container>
+
+<ng-container *ngIf="!isLoading">
+  <h1>{{characters.length}} membres font actuellement parti du conseil</h1>
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Membre</th>
+        <th scope="col">Grade</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Prenom</th>
+        <th scope="col">Alias</th>
+        <th scope="col">Age</th>
+        <th scope="col">inscrit le</th>
+      </tr>
+    </thead>
+    <tbody  *ngFor="let character of characters; let i = index">
+      <tr [ngClass]="{'rowA':i%2==0, 'rowB':i%2!=0}">
+        <th scope="row">{{character.id+1}}</th>
+        <td>{{character.grade}}</td>
+        <td>{{character.firstName}}</td>
+        <td>{{character.lastName}}</td>
+        <td>{{character.alias}}</td>
+        <td>{{character.age}}</td>
+        <td>{{character.creationDate|date:"dd/MM/yy"}}</td>
+        <td>
+          <a class="cursor-pointer" [routerLink]="['/edit', character.id]"><img src="/assets/pics/sand.png" height="30px" class="icon">edit</a>
+          <span class="v-separator">|</span>
+          <a class="cursor-pointer"><img src="/assets/pics/sand.png" height="30px" class="icon" (click)="delete(character)">del</a>
+          <span class="v-separator">|</span>
+          <a class="cursor-pointer" [routerLink]="['/detail', character.id]" ><img src="/assets/pics/sand.png" height="30px" class="icon" (click)="delete(character)">detail</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>
+
+<a class="cursor-pointer" [routerLink]="['/add']"><img src="/assets/pics/sand.png" height="30px" class="icon">Ajouter un nouveau membre au conseil</a>
+
+
+<!-- id:number;
+firstName:string;
+lastName:string;
+alias: string;
+grade:string;
+age: number;
+background: string;
+motivation: string;
+activities: string;
+titles: string;
+estate: string;
+creationDate : Date; -->

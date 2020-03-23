@@ -1,0 +1,14 @@
+<ng-container *ngIf="isLoading">
+  Loading..
+</ng-container>
+
+<ng-container *ngIf="!isLoading">
+  <h1>
+    <span>character number {{character.id+1}}</span>
+    {{character.firstName}}<br>
+    {{character.lastName}}<br>
+    {{character.grade}}<br>
+    {{character.age}}<br>
+    {{character.creationDate|date:"d/MM/yy"}}<br>
+  </h1>
+</ng-container>

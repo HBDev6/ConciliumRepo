@@ -9,6 +9,7 @@
 
 # dependencies
 /node_modules
+# /src/* -> ignore TOUS les fichiers dans /src lors du depot
 
 # profiling files
 chrome-profiler-events*.json
